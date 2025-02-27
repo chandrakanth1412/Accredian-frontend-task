@@ -7,7 +7,7 @@ const ReferralForm = ({ isOpen, onClose }) => {
     refereeName: "",
     refereeEmail: "",
     referralCode: `REF-${Math.random().toString(36).substr(2, 8).toUpperCase()}`,
-    courseName: "", // Updated to allow course selection
+    courseName: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -25,11 +25,14 @@ const ReferralForm = ({ isOpen, onClose }) => {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/referrals", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://accredian-backend-task-u5c5.onrender.com/api/referrals",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
 
@@ -41,7 +44,7 @@ const ReferralForm = ({ isOpen, onClose }) => {
           refereeName: "",
           refereeEmail: "",
           referralCode: `REF-${Math.random().toString(36).substr(2, 8).toUpperCase()}`,
-          courseName: "", // Reset course selection
+          courseName: "",
         });
       } else {
         setError(data.error || "Error submitting referral!");
