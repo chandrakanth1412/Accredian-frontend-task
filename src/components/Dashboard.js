@@ -6,7 +6,8 @@ const Dashboard = () => {
 
   useEffect(() => {
     // Fetch referrals from backend
-    axios.get("http://localhost:5000/api/referrals")
+    axios.get("https://accredian-backend-task-u5c5.onrender.com/api/referrals")
+
       .then(response => {
         setReferrals(response.data); // Store referrals in state
       })
