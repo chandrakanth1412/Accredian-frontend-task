@@ -26,7 +26,7 @@ const ReferralForm = ({ isOpen, onClose }) => {
 
     try {
       const response = await fetch(
-        "https://accredian-backend-task-u5c5.onrender.com/api/referrals",
+        "https://accredian-backend-task-u5c5.onrender.com",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
